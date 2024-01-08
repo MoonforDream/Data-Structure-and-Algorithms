@@ -33,7 +33,7 @@ Some data structures and algorithms implemented in C++
 <a name="en"></a>
 
 
-## 简介
+## brief introduction
 This project records some data structures and algorithms, and implements them in C++. Notes are taken in an MD file, but the language of the notes is still Chinese. If you want to read, you can use translation software for translation or directly look at the code.
 
 If you find that the image cannot be loaded during the preview of the MD file, you can try downloading the image from the images folder, and then change the URL prefix in the MD file to the folder path you downloaded based on the update.py script I provided.
