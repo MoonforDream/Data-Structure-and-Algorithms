@@ -6,7 +6,7 @@
 
 
 
-![image-20230706231238605](C:\Users\me\AppData\Roaming\Typora\typora-user-images\image-20230706231238605.png)
+![image-20230706231238605](https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20230706231238605.png)
 
 
 
