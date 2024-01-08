@@ -6,7 +6,7 @@
 
 
 
-![image-20230706231238605](https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20230706231238605.png)
+<img src="https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20230706231238605.png">
 
 
 
