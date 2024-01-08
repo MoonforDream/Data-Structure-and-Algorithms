@@ -236,7 +236,7 @@ struct destoty(Node *head){
 
 - **双向非循环链表**就是双向的链表，链表中的前后结点都有指向对方的指针，就是A<sub>1</sub>的next为A<sub>2</sub>，但是A<sub>2</sub>又有指针指向A<sub>1</sub>.
 
-![image-20230702224040084](C:\Users\me\AppData\Roaming\Typora\typora-user-images\image-20230702224040084.png)
+![image-20230702224040084](https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20230702224040084.png)
 
 
 
@@ -339,7 +339,7 @@ void printlist(struct doublyNode* head){
 - **循环链表**就是没有表头表尾的链表，例如一般的链表的表尾为NULL,但是循环链表的下一个指向的表头，不仅有**单向循环链表**，而且还有**双向循环链表**，双向循环链表就是表头的前一个指向表尾，表尾的下一个指向表头。
 - *C++中的STL库中就已经封装了双向循环链表的类(list)*
 
-![image-20230702224006153](C:\Users\me\AppData\Roaming\Typora\typora-user-images\image-20230702224006153.png)
+![image-20230702224006153](https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20230702224006153.png)
 
 
 
@@ -474,7 +474,7 @@ void printlist(CirNode* head){
 
 
 
-![image-20230822185247930](C:\Users\me\AppData\Roaming\Typora\typora-user-images\image-20230822185247930.png)
+![image-20230822185247930](https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20230822185247930.png)
 
 
 
@@ -744,7 +744,7 @@ int main() {
 
 蓝桥杯2415：附近最小
 
-![image-20231127130443086](C:\Users\me\AppData\Roaming\Typora\typora-user-images\image-20231127130443086.png)
+![image-20231127130443086](https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20231127130443086.png)
 
 
 
