@@ -9,7 +9,7 @@
 
 
 
-![image-20230707221904048](C:\Users\me\AppData\Roaming\Typora\typora-user-images\image-20230707221904048.png)
+![image-20230707221904048](https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20230707221904048.png)
 
 
 
@@ -204,7 +204,7 @@ void destroy(treeNode* root){
 - 平衡二叉树的深度要比节点数小很多，平均深度为**O(n<sup>1/2</sup>)**
 - 对于特殊类型的二叉树，即**二叉查找树(binary search tree)**，平均深度为**O(logN)**，最坏情况的二叉树深度能达到N-1。
 
-![image-20230707230357034](C:\Users\me\AppData\Roaming\Typora\typora-user-images\image-20230707230357034.png)
+![image-20230707230357034](https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20230707230357034.png)
 
 
 
@@ -642,9 +642,9 @@ binarysearch* destroy(binarysearch* &root){
   > 3. 原先α点的左儿子的左子树根节点成为现在α点(之前的α点的左儿子)的左儿子，原先的α点作为现在α点的右儿子，原先α点的左儿子的右子树根节点成为现在α点的右儿子的左子树根节点
   > 4. 重新形成一个新的AVL树
 
-  ![image-20230712224654575](C:\Users\me\AppData\Roaming\Typora\typora-user-images\image-20230712224654575.png)
+  ![image-20230712224654575](https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20230712224654575.png)
 
-  ![image-20230712224427132](C:\Users\me\AppData\Roaming\Typora\typora-user-images\image-20230712224427132.png)
+  ![image-20230712224427132](https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20230712224427132.png)
 
 - 对于情形4(如图4-33)，其实情形4跟情形差不多的做法就是方向改变了，我们需要将造成不平衡的插入点上移一层，另外那个跟它高度差为2的节点下移一层(**就是将α点跟其右节点进行单旋转**(*单旋转就是类似将右节点拎起来，其他的节点根据重量下坠，然后再根据二叉查找树的特性排序形成新的平衡二叉树*))，并形成新的平衡二叉查找树
 
@@ -655,7 +655,7 @@ binarysearch* destroy(binarysearch* &root){
   >3. 原先的α点成为现在的α点(之前的α点的右儿子)的左儿子，原先的α点的右儿子的右子树根节点成为现在的α点的右儿子，原先α点的右儿子的左子树根节点成为了现在α点的左儿子的右子树根节点
   >4. 重新形成一颗新的AVL树
 
-  ![image-20230712224758752](C:\Users\me\AppData\Roaming\Typora\typora-user-images\image-20230712224758752.png)
+  ![image-20230712224758752](https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20230712224758752.png)
 
 
 
@@ -672,7 +672,7 @@ binarysearch* destroy(binarysearch* &root){
 
 - 对于情形2和3，单旋转无法修正被破坏的AVL树，对于图4-34子树Y太深，单旋转无法减低它的深度
 
-  ![image-20230713164436865](C:\Users\me\AppData\Roaming\Typora\typora-user-images\image-20230713164436865.png)
+  ![image-20230713164436865](https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20230713164436865.png)
 
 - 对于情形2，例如图4-35(k1<k2<k3)，我们需要用到**双旋转**(*让α的左儿子的右子树根节点跟α的左儿子做一次单旋转，旋转完后，α的左儿子的右子树就是α的左儿子，原来α的左儿子变成了α的左儿子的右子树根节点，然后现在的α的左儿子(也就是原来的α的左儿子的右子树根节点)跟α点做一次单旋转*)，具体步骤就是
 
@@ -681,7 +681,7 @@ binarysearch* destroy(binarysearch* &root){
   > 3. 如果插入的是左节点，就让它成为k1的右儿子，如果插入的是右节点就让它成为k3的左儿子。
   > 4. 然后就形成了新的AVL树
 
-  ![image-20230713174303812](C:\Users\me\AppData\Roaming\Typora\typora-user-images\image-20230713174303812.png)
+  ![image-20230713174303812](https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20230713174303812.png)
 
 - 对于情形三(图4-36，k1<k2<k3)，跟情形二做法差不多只是方向改变了，我们需要用到**双旋转**(*让α的右儿子的左子树根节点跟α的右儿子做一次单旋转，旋转完后，α的右儿子的左子树就是α的右儿子，原来α的右儿子变成了α的右儿子的左子树根节点，然后现在的α的右儿子(也就是原来的α的右儿子的左子树根节点)跟α点做一次单旋转*)，具体步骤就是
 
@@ -690,7 +690,7 @@ binarysearch* destroy(binarysearch* &root){
   >3. 如果插入的是左节点，就让它成为k1的右儿子，如果插入的是右节点就让它成为k3的左儿子。
   >4. 然后就形成了新的AVL树
 
-  ![image-20230713175843996](C:\Users\me\AppData\Roaming\Typora\typora-user-images\image-20230713175843996.png)
+  ![image-20230713175843996](https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20230713175843996.png)
 
 
 
@@ -987,7 +987,7 @@ void inorderprint(AVL* root){
   > 2. 如果是“**之字形**”，就需要对要访问的节点进行**双旋转**操作，*如果访问的节点不是根的孙节点*，则进行双旋转操作后，**会将路径结构转换为“一字形”**，然后再进行“一字形”操作，将其放在根上
   > 3. 如果是“**一字形**”，就需要路径**从下到上逐一进行单旋转操作**，直至要访问的节点成为根才结束
 
-  ![image-20230714224309258](C:\Users\me\AppData\Roaming\Typora\typora-user-images\image-20230714224309258.png)
+  ![image-20230714224309258](https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20230714224309258.png)
 
 
 
@@ -1178,7 +1178,7 @@ void destroy(splay* &root){
 
 - 非叶子节点也有存储关键词的地方，这个地方是来表示范围的(*如果要查找的数据小于该关键字就找关键字左边的子节点数据，大于就右边的子节点数据*)，**如果叶子节点数据按照升序排列，则非叶子节点的关键词有m-1个(m为该非叶子节点的子节点个数)，如果按照降序排列，则非叶子节点的关键字有m个**，例如图4-58为升序排列的B树
 
-  ![](C:\Users\me\AppData\Roaming\Typora\typora-user-images\image-20230716162205621.png)
+  ![](https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20230716162205621.png)
 
 
 
@@ -1608,10 +1608,10 @@ void inorderprint(btree* root){
 
    >1. 要**删除节点cur跟其兄弟节点s原本颜色为黑色**，**父亲节点p为红色**
    >
-   >  - **s的两个儿子都是红色**，这样双旋转和单旋转都可以，这里优先选择`ps单选择`调整，*情况1*
-   >  - **s的左儿子为红色**，需要`ps.l双旋转`调整(s.l为s的左儿子)，*情况2*
-   >  - **s的右儿子为红色**，需要`ps单旋转`调整，*情况3*
-   >  - **s有两个黑色儿子**，直接`cur,p,s颜色翻转操作`调整，*情况4*
+   > - **s的两个儿子都是红色**，这样双旋转和单旋转都可以，这里优先选择`ps单选择`调整，*情况1*
+   > - **s的左儿子为红色**，需要`ps.l双旋转`调整(s.l为s的左儿子)，*情况2*
+   > - **s的右儿子为红色**，需要`ps单旋转`调整，*情况3*
+   > - **s有两个黑色儿子**，直接`cur,p,s颜色翻转操作`调整，*情况4*
    >
    >2. **p和cur为黑色**，**s为红色**，需要`交换sp节点的颜色`，并且sp`单旋转`调整，*情况5*
    >3. **cur为红色**，可以继续`将cur下降`，也就是当前cur指向原本cur的子节点，如果为红色继续下降，如果为黑色就判断是否需要操作，*情况6*
@@ -1622,21 +1622,21 @@ void inorderprint(btree* root){
 
 
 
-![image-20230831235326572](C:\Users\me\AppData\Roaming\Typora\typora-user-images\image-20230831235326572.png)																				*情况2*
+![image-20230831235326572](https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20230831235326572.png)																				*情况2*
 
 
 
 
 
-![image-20230831235206080](C:\Users\me\AppData\Roaming\Typora\typora-user-images\image-20230831235206080.png)																			*情况3*
+![image-20230831235206080](https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20230831235206080.png)																			*情况3*
 
 
 
-![image-20230831235036611](C:\Users\me\AppData\Roaming\Typora\typora-user-images\image-20230831235036611.png)																			*情况4*
+![image-20230831235036611](https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20230831235036611.png)																			*情况4*
 
 
 
-![image-20230831235617247](C:\Users\me\AppData\Roaming\Typora\typora-user-images\image-20230831235617247.png)																		*情况5*
+![image-20230831235617247](https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20230831235617247.png)																		*情况5*
 
 
 
