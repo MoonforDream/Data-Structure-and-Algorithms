@@ -421,7 +421,7 @@ void insertsort(int *an,int len){
 - 关于**增量序列h**，我们将数组的所有元素，**按照索引号i,i+h,i+2h....(在数组索引范围0-N-1之内)作为一个序列进行排序**，而这个**排序是按照序列内的索引号排序**因此不会影响到其他索引号的排序，而形成**增量序列的h的选取可以自定义**，但是**希尔建议使用h1=(N-1)/2,h2=h1/2直到hk=1的方式进行形成增量序列(但不是很好)。**
 - 例如：一个无序数组的元素有12个，则排序该数组需要三趟，h(根据数组最大索引号也就是11除以2取得h1)分别为5，2，1，因此在以5为增量的趟次中，0，5，10为一个序列并将对应号上的元素进行插入排序，1，6，11又为1个序列进行排序。
 
-![image-20230727192100476](https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20230727192100476.png)
+<img src="https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20230727192100476.png">
 
 
 
@@ -863,7 +863,7 @@ void CountSort(int *an,int len) {
 
 
 
-![image-20230704203814374](https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20230704203814374.png)
+<img src="https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20230704203814374.png">
 
 
 
@@ -1847,7 +1847,7 @@ void findart(int v){
 - 而贪心算法在这里就是**根据字符出现的频率找出总价值最小的满二叉树**，其中所有字符位于树叶。就是**将出现次数少的放在深度深的地方(编码位数较多)，将出现最多放在最浅的地方(编码位数较少)**
 - 例如图10-9，字符a压缩后所表示的二进制代码为000
 
-![image-20230808214706581](https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20230808214706581.png)
+<img src="https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20230808214706581.png">
 
 
 
@@ -2092,11 +2092,11 @@ tree* Huffman(){
 
 - **后缀**： **字符串除了首字符的子字符串**都是后缀，模式串的后缀有：f、af、aaf、baaf、abaaf
 
-- ![image-20230917203005664](https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20230917203005664.png)
+- <img src="https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20230917203005664.png">
 
 - 根据上述的例子可以列出表格：
 
-  ![image-20230917203152483](https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20230917203152483.png)
+  <img src="https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20230917203152483.png">
 
 - 这样就对应着：aabaaf  010120，这个就为前缀表，而**前缀表**在KMP算法中被称为`next数组`或者`prefix数组`。next的意思就是指通过这个数组可以知晓下一步指针会跳到哪一步。
 
@@ -2304,7 +2304,7 @@ for 状态1 in 状态1的所有取值：
 
 - 设F(n)为求解凑出目标金额为n的最少硬币数，通过分析问题，求解目标金额为n的最小硬币数F(n)=min(F(n-coin1),F(n-coin2)....)，当coins=[1,2,5]，目标金额为11时，则F(11)=min(F(11-1)，F(11-2),F(11-5))，然后依次递推下去，这样就形成了自顶向下的求法，但是会有重复计算，因此需要使用备忘录也就是记忆性递归来剪枝进行优化
 
-![image-20230814232203982](https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20230814232203982.png)
+<img src="https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20230814232203982.png">
 
 
 
@@ -2379,7 +2379,7 @@ public:
 
 **01背包问题**
 
-**![image-20230819112844773](https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20230819112844773.png)**
+**<img src="https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20230819112844773.png">**
 
 - 经典的动态规划题目，01背包的01就对应着我是否将当前物品放入背包中，由题意可知，我们只需要求解dp[N] [W]就可以得到答案，分析题目对于选择i物品时，当前背包剩余重量为w时，我们将物品i放入背包则dp[i] [w]=dp[i-1] [w-wt[i-1]]+val[i-1]，我们不将物品i放入背包则dp[i] [w]=dp[i-1] [w]，因此我们取其最大值就可以求出对于前i个物品，当背包容量为w时，可以装的最大价值，因此状态转移方程为max(dp[i-1] [w],dp[i-1] [w-wt[i-1]]+val[i-1]);
 
@@ -2523,7 +2523,7 @@ type dfs(state){
 
 - 蓝桥杯题：`滑行`
 
-  ![image-20231112233942782](https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20231112233942782.png)
+  <img src="https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20231112233942782.png">
 
   ```c++
   #include <iostream>
@@ -2689,7 +2689,7 @@ int main() {
 
 蓝桥杯2415：附近最小
 
-![image-20231127130443086](https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20231112233942782.png)
+<img src="https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20231112233942782.png">
 
 
 
