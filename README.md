@@ -11,7 +11,8 @@ Some data structures and algorithms implemented in C++
 <a name="chinese"></a>
 
 ## 简介
-该项目记录了一些数据结构与算法，并用C++进行了实现，用md文件进行记录笔记
+该项目记录了一些数据结构与算法，并用C++进行了实现，用md文件进行记录笔记。
+如果在md文件预览发现图片加载不出来，你可以尝试下载images文件夹中图片，然后根据我提供的update.py脚本将md文件中的url前缀更改为你下载的文件夹路径
 
 | Moonfordream| 笔记地址 |
 | :----:| :----: | 
@@ -35,6 +36,7 @@ Some data structures and algorithms implemented in C++
 ## 简介
 This project records some data structures and algorithms, and implements them in C++. Notes are taken in an MD file, but the language of the notes is still Chinese. If you want to read, you can use translation software for translation or directly look at the code.
 
+If you find that the image cannot be loaded during the preview of the MD file, you can try downloading the image from the images folder, and then change the URL prefix in the MD file to the folder path you downloaded based on the update.py script I provided.
 | Moonfordream| Note address |
 | :----:| :----: | 
 | Overview | [https://github.com/MoonforDream/Data-Structure-and-Algorithms/blob/main/all/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95.md](https://github.com/MoonforDream/Data-Structure-and-Algorithms/blob/main/all/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95.md) | 
