@@ -426,9 +426,9 @@ private:
   > 2. **D就是用来区分存储节点的位置的依据**，例如我们的数据由前俩个比特进行区分，则该结构的节点应该能够存储4个元素，然后d<sub>L</sub>应该等于2，因为数据需要根据前两位跟目录的元素进行匹对来存储到对应的节点，因此它的共有最高位应该为2，如图5-23
   > 3. 如果插入数据时，**节点元素已经满了，我们就需要进行分裂节点来存储**，例如上述讲的图5-23当D=2时，我们插入100100时，发现10为根节点的叶子节点元素已经满了，就分裂该叶子节点，分裂完发现根节点也满了则需要对根节点分裂，**因此根节点分裂后应该以3比特进行将数据分开存储，因为2<sup>3</sup>等于8，因此根节点分裂后为8个元素(如图5-24)**，但是**叶子节点只有5个**，因此有**一些根节点跟其他根节点共用一个叶子节点，直到再次插入让它们共用的节点，才进行更改根节点指向(如图5-25)。**
 
-  ![image-20230723144137686](https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20230723144137686.png)
+  <img src="https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20230723144137686.png">
 
-  ![image-20230723144901708](https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20230723144901708.png)
+  <img src="https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20230723144901708.png">
 
-  ![image-20230723145117067](https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20230723145117067.png)
+  <img src="https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20230723145117067.png">
 
