@@ -22,7 +22,7 @@
 
   
 
-![image-20230706002351136](https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20230706002351136.png)
+<img src="https://github.com/MoonforDream/Data-Structure-and-Algorithms/tree/main/images/image-20230706002351136.png">
 
 **链表实现代码**：
 
