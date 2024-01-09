@@ -1,5 +1,5 @@
 # Data-Structure-and-Algorithms
-Some data structures and algorithms implemented in C++
+Some data structures and algorithms implemented in C++(数据结构与算法学习笔记C++版)
 
 
 # 目录
