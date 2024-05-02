@@ -1,6 +1,7 @@
 #include <iostream>
 #include <queue>
 #include <math.h>
+#include <limits.h>
 using namespace std;
 
 typedef enum {red,black} colortype;
@@ -8,9 +9,9 @@ typedef enum {red,black} colortype;
 struct RBNode{
     int data;
     RBNode *left,*right,*parent;
-    colortype color;   //ÑÕÉ«
+    colortype color;   //é¢œè‰²
     RBNode(const int val,RBNode* l,RBNode* r,RBNode* p,colortype c=red):data(val),
-    left(l),right(r),parent(p),color(c){};
+                                                                        left(l),right(r),parent(p),color(c){};
 };
 
 class RBtree{
@@ -27,11 +28,11 @@ public:
         delete t;
         delete nil;
     };
-    void insert(const int val);      //²åÈë²Ù×÷
-    void del(const int val);       //É¾³ı²Ù×÷
-    RBNode* find(const int val);   //²éÕÒ²Ù×÷
-    void print();     //´òÓ¡²Ù×÷,²ãĞò±éÀú
-    //Çå¿Õ²Ù×÷
+    void insert(const int val);      //æ’å…¥æ“ä½œ
+    void del(const int val);       //åˆ é™¤æ“ä½œ
+    RBNode* find(const int val);   //æŸ¥æ‰¾æ“ä½œ
+    void print();     //æ‰“å°æ“ä½œ,å±‚åºéå†
+    //æ¸…ç©ºæ“ä½œ
     void clear(){
         clear(root);
         root= nullptr;
@@ -40,8 +41,8 @@ public:
     }
 
 protected:
-    void overturnred(const int val,RBNode* &cur);    //·­×ª²Ù×÷,½«µ±Ç°½Úµã±ä³ÉºìÉ«£¬×Ó½Úµã±ä³ÉºÚÉ«
-    void overturnblack(int val,RBNode* &cur);   //·­×ª²Ù×÷£¬½«µ±Ç°½Úµã±ä³ÉºÚÉ«£¬×Ó½Úµã±ä³ÉºìÉ«
+    void overturnred(const int val,RBNode* &cur);    //ç¿»è½¬æ“ä½œ,å°†å½“å‰èŠ‚ç‚¹å˜æˆçº¢è‰²ï¼Œå­èŠ‚ç‚¹å˜æˆé»‘è‰²
+    void overturnblack(int val,RBNode* &cur);   //ç¿»è½¬æ“ä½œï¼Œå°†å½“å‰èŠ‚ç‚¹å˜æˆé»‘è‰²ï¼Œå­èŠ‚ç‚¹å˜æˆçº¢è‰²
     RBNode* SingleRotatewithleft(RBNode* &k1);
     RBNode* SingleRotatewithright(RBNode* &k1);
     RBNode* Rotate(const int val,RBNode* &k1){
@@ -52,15 +53,15 @@ protected:
         }
     }
     void clear(RBNode* &rt);
-    // ¼ÆËãºìºÚÊ÷²ãÊı
+    // è®¡ç®—çº¢é»‘æ ‘å±‚æ•°
     int Height(int nodeCount) {
-        // ºìºÚÊ÷µÄ²ãÊıÎª log2(nodeCount+1)
+        // çº¢é»‘æ ‘çš„å±‚æ•°ä¸º log2(nodeCount+1)
         return (int)std::ceil(std::log2(nodeCount+1));
     }
 private:
     RBNode* root;
-    RBNode* nil;   //¿Õ½Úµã£¬colorÎªºÚÉ«
-    RBNode* t;  //¸ù±ê¼Ç£¬ÓÃÓÚÉ¾³ı²Ù×÷µÄ±ã½İ
+    RBNode* nil;   //ç©ºèŠ‚ç‚¹ï¼Œcolorä¸ºé»‘è‰²
+    RBNode* t;  //æ ¹æ ‡è®°ï¼Œç”¨äºåˆ é™¤æ“ä½œçš„ä¾¿æ·
     int size;
 };
 
@@ -80,7 +81,7 @@ RBNode* RBtree::SingleRotatewithright(RBNode *&k1) {
     return k2;
 }
 
-//·­×ª²Ù×÷
+//ç¿»è½¬æ“ä½œ
 void RBtree::overturnred(const int val,RBNode* &cur) {
     cur->color=red;
     cur->left->color=cur->right->color=black;
@@ -88,7 +89,7 @@ void RBtree::overturnred(const int val,RBNode* &cur) {
     if(p->color==red){
         RBNode* g=p->parent;
         g->color=red;
-        if((val<g->data)!=(val<p->data)){     //Ë«Ğı×ª
+        if((val<g->data)!=(val<p->data)){     //åŒæ—‹è½¬
             p= Rotate(val,g);
         }
         cur= Rotate(val,g->parent);
@@ -98,7 +99,7 @@ void RBtree::overturnred(const int val,RBNode* &cur) {
 }
 
 
-//²åÈë²Ù×÷
+//æ’å…¥æ“ä½œ
 void RBtree::insert(const int val) {
     if(root== nullptr){
         root=new RBNode(val,nil,nil, t,black);
@@ -132,18 +133,18 @@ void RBtree::overturnblack(int val, RBNode *&cur) {
     cur->color=red;
     RBNode* p=cur->parent;
     RBNode* s=val<p->data?p->left:p->right;
-    //case4:ÒªÉ¾³ı½Úµãcur¸úÆäĞÖµÜ½ÚµãsÔ­±¾ÑÕÉ«ÎªºÚÉ«£¬¸¸Ç×½ÚµãpÎªºìÉ«£¬sµÄÁ½¸ö¶ù×Ó¶¼ÊÇºìÉ«£¬ÕâÑùË«Ğı×ªºÍµ¥Ğı×ª¶¼¿ÉÒÔ£¬ÕâÀïÓÅÏÈÑ¡Ôñpsµ¥Ñ¡Ôñ
-    //case1:ÒªÉ¾³ı½Úµãcur¸úÆäĞÖµÜ½ÚµãsÔ­±¾ÑÕÉ«ÎªºÚÉ«£¬¸¸Ç×½ÚµãpÎªºìÉ«£¬sµÄ×ó¶ù×ÓÎªºìÉ«µÄÇé¿ö,ĞèÒªps.lË«Ğı×ªµ÷Õû
-    if(s->left->color==red){
-        val=s->left->data;
-    }
-    //case2:ÒªÉ¾³ı½Úµãcur¸úÆäĞÖµÜ½ÚµãsÔ­±¾ÑÕÉ«ÎªºÚÉ«£¬¸¸Ç×½ÚµãpÎªºìÉ«£¬sµÄÓÒ¶ù×ÓÎªºìÉ«Çé¿ö£¬ĞèÒªpsµ¥Ğı×ªµ÷Õû
-    else if(s->right->color==red){
+    //case4:è¦åˆ é™¤èŠ‚ç‚¹curè·Ÿå…¶å…„å¼ŸèŠ‚ç‚¹såŸæœ¬é¢œè‰²ä¸ºé»‘è‰²ï¼Œçˆ¶äº²èŠ‚ç‚¹pä¸ºçº¢è‰²ï¼Œsçš„ä¸¤ä¸ªå„¿å­éƒ½æ˜¯çº¢è‰²ï¼Œè¿™æ ·åŒæ—‹è½¬å’Œå•æ—‹è½¬éƒ½å¯ä»¥ï¼Œè¿™é‡Œä¼˜å…ˆé€‰æ‹©pså•é€‰è½¬
+    //case2:è¦åˆ é™¤èŠ‚ç‚¹curè·Ÿå…¶å…„å¼ŸèŠ‚ç‚¹såŸæœ¬é¢œè‰²ä¸ºé»‘è‰²ï¼Œçˆ¶äº²èŠ‚ç‚¹pä¸ºçº¢è‰²ï¼Œsçš„å³å„¿å­ä¸ºçº¢è‰²æƒ…å†µï¼Œéœ€è¦pså•æ—‹è½¬è°ƒæ•´
+    if(s->right->color==red){
         val=s->right->data;
     }
-    //case3:ÒªÉ¾³ı½Úµãcur¸úÆäĞÖµÜ½ÚµãsÔ­±¾ÑÕÉ«ÎªºÚÉ«£¬¸¸Ç×½ÚµãpÎªºìÉ«£¬sÓĞÁ½¸öºÚ¶ù×Ó(nil½ÚµãÒ²ÊÇºÚÉ«),Ö±½Ó½«ÑÕÉ«·­×ª¼´¿É
+    //case1:è¦åˆ é™¤èŠ‚ç‚¹curè·Ÿå…¶å…„å¼ŸèŠ‚ç‚¹såŸæœ¬é¢œè‰²ä¸ºé»‘è‰²ï¼Œçˆ¶äº²èŠ‚ç‚¹pä¸ºçº¢è‰²ï¼Œsçš„å·¦å„¿å­ä¸ºçº¢è‰²çš„æƒ…å†µ,éœ€è¦ps.låŒæ—‹è½¬è°ƒæ•´
+    else if(s->left->color==red){
+        val=s->left->data;
+    }
+        //case3:è¦åˆ é™¤èŠ‚ç‚¹curè·Ÿå…¶å…„å¼ŸèŠ‚ç‚¹såŸæœ¬é¢œè‰²ä¸ºé»‘è‰²ï¼Œçˆ¶äº²èŠ‚ç‚¹pä¸ºçº¢è‰²ï¼Œsæœ‰ä¸¤ä¸ªé»‘å„¿å­(nilèŠ‚ç‚¹ä¹Ÿæ˜¯é»‘è‰²),ç›´æ¥å°†é¢œè‰²ç¿»è½¬å³å¯
     else{
-        //·­×ª²Ù×÷
+        //ç¿»è½¬æ“ä½œ
         if(s!=nil){
             s->color=red;
         }
@@ -155,18 +156,18 @@ void RBtree::overturnblack(int val, RBNode *&cur) {
     }
     RBNode* g=p->parent;
     Rotate(val,g);
-    //½«µ÷ÕûÍêµÄcurµÄĞÂ×æ¸¸Ò²¾ÍÊÇs»òÕßsµÄ×ó¶ù×Ó±ä³ÉºìÉ«£¬Ò²¾ÍÊÇÉ¾³ıÍêcurºó½«ÑÕÉ«µ÷Õûµ½Ö®Ç°curÔÚ·­×ªÇ°µÄÇé¿ö
+    //å°†è°ƒæ•´å®Œçš„curçš„æ–°ç¥–çˆ¶ä¹Ÿå°±æ˜¯sæˆ–è€…sçš„å·¦å„¿å­å˜æˆçº¢è‰²ï¼Œä¹Ÿå°±æ˜¯åˆ é™¤å®Œcuråå°†é¢œè‰²è°ƒæ•´åˆ°ä¹‹å‰curåœ¨ç¿»è½¬å‰çš„æƒ…å†µ
     g->color=red;
     g->left->color=g->right->color=black;
 }
 
 
 void RBtree::del(const int val) {
-    RBNode* tomove=nil;  //ÕÒµ½É¾³ı½Úµã
+    RBNode* tomove=nil;  //æ‰¾åˆ°åˆ é™¤èŠ‚ç‚¹
     RBNode *g,*p,*s,*cur;
     g=p=t,s=t->left,cur=root;
     while (cur!=nil){
-        //·­×ªÑÕÉ«
+        //ç¿»è½¬é¢œè‰²
         if(cur->left->color==black&&cur->right->color==black){
             overturnblack(val,cur);
         }else{
@@ -176,17 +177,17 @@ void RBtree::del(const int val) {
             }else{
                 tomove=cur,cur=p->right,s=p->left;
             }
-            //case5:´ËÊ±¿Ï¶¨pºÍcur¶¼ÎªºÚÉ«£¬ÒòÎªÈç¹ûpÎªºìÉ«Ôç¾Í·­×ªÁË£¬s¿Ï¶¨ÊÇºìÉ«£¬½«s±ä³ÉºÚÉ«£¬p±äÎªºìÉ«£¬spµ¥Ğı×ªµ÷Õû
+            //case5:æ­¤æ—¶è‚¯å®špå’Œcuréƒ½ä¸ºé»‘è‰²ï¼Œå› ä¸ºå¦‚æœpä¸ºçº¢è‰²æ—©å°±ç¿»è½¬äº†ï¼Œsè‚¯å®šæ˜¯çº¢è‰²ï¼Œå°†så˜æˆé»‘è‰²ï¼Œpå˜ä¸ºçº¢è‰²ï¼Œspå•æ—‹è½¬è°ƒæ•´
             if(cur->color==black){
                 s->color=black;
                 p->color=red;
-                //µ¥Ğı×ªÍê£¬curĞÂ×æ¸¸±äÎªs,½«sÖØĞÂ¸ü¸Ä
+                //å•æ—‹è½¬å®Œï¼Œcuræ–°ç¥–çˆ¶å˜ä¸ºs,å°†sé‡æ–°æ›´æ”¹
                 g= Rotate(val,g);
                 s=val<p->data?p->left:p->right;
-                //µ÷ÕûÍê¸ÃÇé¿ö¾ÍÖØĞÂ¼ì²éÉÏÊö²Ù×÷
+                //è°ƒæ•´å®Œè¯¥æƒ…å†µå°±é‡æ–°æ£€æŸ¥ä¸Šè¿°æ“ä½œ
                 continue;
             }
-            //else£¬curÒ»¶¨ÎªºìÉ«£¬Ôò¿ÉÒÔÖ±½Ó¼ÌĞø½«cur¼ÌĞøÏÂ½µ
+            //elseï¼Œcurä¸€å®šä¸ºçº¢è‰²ï¼Œåˆ™å¯ä»¥ç›´æ¥ç»§ç»­å°†curç»§ç»­ä¸‹é™
         }
         g=p;p=cur;
         if(val<p->data){
@@ -195,15 +196,15 @@ void RBtree::del(const int val) {
             tomove=cur,cur=p->right,s=p->left;
         }
     }
-    root->color=black;   //±£Ö¤ºìºÚÊ÷ĞÔÖÊ2²»±»ÆÆ»µ£¬Ò²¾ÍÊÇ¸ùÒ»¶¨ÎªºÚÉ«
+    root->color=black;   //ä¿è¯çº¢é»‘æ ‘æ€§è´¨2ä¸è¢«ç ´åï¼Œä¹Ÿå°±æ˜¯æ ¹ä¸€å®šä¸ºé»‘è‰²
 
-    //ÅĞ¶ÏÊÇ·ñÕÒµ½ÕæÕıÒªÉ¾³ıµÄ½Úµã£¬Èç¹ûÕÒ²»µ½¾ÍÍË³ö
+    //åˆ¤æ–­æ˜¯å¦æ‰¾åˆ°çœŸæ­£è¦åˆ é™¤çš„èŠ‚ç‚¹ï¼Œå¦‚æœæ‰¾ä¸åˆ°å°±é€€å‡º
     if(tomove==nil&&tomove->data!=val){
-        cout<<"Î´ÕÒµ½ÒªÉ¾³ı¶ÔÓ¦ÖµµÄ½Úµã";
+        cout<<"æœªæ‰¾åˆ°è¦åˆ é™¤å¯¹åº”å€¼çš„èŠ‚ç‚¹";
         return;
     }
 
-    //tomoveÊÇÒªÉ¾³ıµÄ½Úµã£¬¶øpÖ¸ÏòµÄÊÇÕæÕıÒªÉ¾³ıµÄ½Úµã
+    //tomoveæ˜¯è¦åˆ é™¤çš„èŠ‚ç‚¹ï¼Œè€ŒpæŒ‡å‘çš„æ˜¯çœŸæ­£è¦åˆ é™¤çš„èŠ‚ç‚¹
     tomove->data=p->data;
     if(g->left==p) g->left=nil;
     else g->right=nil;
@@ -219,7 +220,7 @@ RBNode* RBtree::find(const int val) {
             cur=val<cur->data?cur->left:cur->right;
         }
         if(cur==nil){
-            cout<<"Ê÷ÖĞÃ»ÓĞÖ¸¶¨Öµ½Úµã"<<endl;
+            cout<<"æ ‘ä¸­æ²¡æœ‰æŒ‡å®šå€¼èŠ‚ç‚¹"<<endl;
         }
     }
     return root;
@@ -227,7 +228,7 @@ RBNode* RBtree::find(const int val) {
 
 void RBtree::print() {
     if(root== nullptr){
-        cout<<"Ê÷Îª¿Õ"<<endl;
+        cout<<"æ ‘ä¸ºç©º"<<endl;
         return;
     }
     queue<RBNode*>q;
@@ -289,10 +290,10 @@ int main() {
     rBtree.insert(80);
     rBtree.insert(90);
     rBtree.insert(45);
-//    rBtree.del(65);
-//    rBtree.del(50);
-//    rBtree.del(30);
+    rBtree.del(65);
+    rBtree.del(50);
+    rBtree.del(30);
     rBtree.print();
-    system("pause");
     return 0;
 }
+
