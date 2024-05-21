@@ -1,5 +1,7 @@
 # Data-Structure-and-Algorithms
 Some data structures and algorithms implemented in C++(数据结构与算法学习笔记C++版)
+后期的维护我不再将其提交到github仓库里进行更新，我将会在我的博客中进行更新。
+博客笔记对应地址：https://moonfordream.github.io/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/
 
 
 # 目录
